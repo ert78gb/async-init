@@ -19,7 +19,7 @@ describe('async-init', () => {
       asyncInit(fn),
       asyncInit(fn),
       asyncInit(fn),
-      asyncInit(fn),
+      asyncInit(fn)
     ])
     assert.deepStrictEqual(result, [0, 0, 0, 0, 0])
   })
@@ -47,7 +47,7 @@ describe('async-init', () => {
       asyncInit2(fn2).then(result => assert.strictEqual(result, 'fno2')),
       asyncInit2(fn2).then(result => assert.strictEqual(result, 'fno2')),
       asyncInit1(fn1).then(result => assert.strictEqual(result, 'fno1')),
-      asyncInit2(fn2).then(result => assert.strictEqual(result, 'fno2')),
+      asyncInit2(fn2).then(result => assert.strictEqual(result, 'fno2'))
     ])
   })
 
@@ -58,6 +58,7 @@ describe('async-init', () => {
           .then(() => resolve({ a: 1 }))
       })
     }
+
     const asyncInit = asyncIniter()
 
     const [instance1, instance2] = await Promise.all([
@@ -81,7 +82,7 @@ describe('async-init', () => {
     try {
       await Promise.all([
         asyncInit(fn),
-        asyncInit(fn),
+        asyncInit(fn)
       ])
       assert.strictEqual(true, false)
     } catch (error) {
@@ -116,7 +117,7 @@ describe('async-init', () => {
         .catch(error => {
           assert.deepStrictEqual(error.message, 'Custom error')
           errorCounts++
-        }),
+        })
     ])
 
     assert.strictEqual(errorCounts, 2)
