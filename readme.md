@@ -16,6 +16,7 @@ const asyncIniter = asyncInit();
 async function asyncInstanceCreator() {
   // implementation
   // It will call only once
+  return Promise.resolve('Return value of an async operation.')
 }
 
 function getSingleton() {
